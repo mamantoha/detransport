@@ -12,6 +12,12 @@ class App < Sinatra::Base
   configure do
     register Sinatra::Reloader
     register Sinatra::Namespace
+
+    set :views, 'app/views'
+  end
+
+  get '/' do
+    erb :index
   end
 
   namespace '/api' do
