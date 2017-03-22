@@ -6,7 +6,7 @@ require 'faraday'
 require 'json'
 
 class App < Sinatra::Base
-  configure :development do
+  configure do
     register Sinatra::Reloader
     register Sinatra::Namespace
   end
