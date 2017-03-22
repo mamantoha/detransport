@@ -13,6 +13,8 @@ class App < Sinatra::Base
 
   namespace '/api' do
     before do
+      headers 'Access-Control-Allow-Origin' => '*'
+
       url = 'http://api.detransport.com.ua'
       @conn = Faraday.new(url: url)
     end
