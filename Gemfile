@@ -5,3 +5,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'puma'
 gem 'faraday'
+
+group :development do
+  gem 'pry'
+end

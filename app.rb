@@ -1,9 +1,12 @@
+require 'bundler'
 require 'sinatra'
 require 'sinatra/json'
 require 'sinatra/reloader'
 require 'sinatra/namespace'
 require 'faraday'
 require 'json'
+
+Bundler.require :default, ENV['RACK_ENV'].to_sym
 
 class App < Sinatra::Base
   configure do
