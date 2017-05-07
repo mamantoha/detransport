@@ -6,6 +6,7 @@ Vue.use(VueResource);
 let app = new Vue({
   el: '#app',
   data: {
+    search: '',
     message: `Hello from Vue ${Vue.version}!`,
     stops: []
   },
@@ -16,6 +17,13 @@ let app = new Vue({
         console.log(response)
       }, response => {
         console.log(response)
+      })
+    }
+  },
+  computed: {
+    filteredStops() {
+      return this.stops.filter(stop => {
+        return stop.name.toLowerCase().includes(this.search.toLowerCase())
       })
     }
   },

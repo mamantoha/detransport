@@ -16,8 +16,10 @@
   <div id="app">
     {{ message }}
     </hr>
-    <h4>Stops:</h4>
-    <div v-for="(stop, index) in stops">
+    <h4>Stops({{Object.keys(filteredStops).length}}):</h4>
+    <input type="text" v-model="search" class="form-control" />
+
+    <div v-for="stop in filteredStops">
       {{ stop.name }}
     </div>
   </div>
