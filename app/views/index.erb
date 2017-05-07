@@ -15,6 +15,11 @@
   Hello from Ruby <%= RUBY_VERSION %>
   <div id="app">
     {{ message }}
+    </hr>
+    <h4>Stops:</h4>
+    <div v-for="(stop, index) in stops">
+      {{ stop.name }}
+    </div>
   </div>
   <script src="javascripts/application.js"></script>
 </body>

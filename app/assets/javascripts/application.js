@@ -1,8 +1,25 @@
-import 'vue'
+import Vue from 'vue/dist/vue.esm'
+import VueResource from 'vue-resource'
 
-var app = new Vue({
+Vue.use(VueResource);
+
+let app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue!'
+    message: 'Hello Vue!',
+    stops: []
+  },
+  methods: {
+    loadStops: function() {
+      this.$http.get('/api/stops').then(response => {
+        this.stops = response.body.stops
+        console.log(response)
+      }, response => {
+        console.log(response)
+      })
+    }
+  },
+  mounted: function() {
+    this.loadStops();
   }
 })
