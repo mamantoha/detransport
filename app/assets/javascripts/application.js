@@ -6,7 +6,7 @@ Vue.use(VueResource);
 let app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue!',
+    message: `Hello from Vue ${Vue.version}!`,
     stops: []
   },
   methods: {
