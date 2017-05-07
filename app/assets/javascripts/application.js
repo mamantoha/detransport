@@ -7,7 +7,7 @@ let app = new Vue({
   el: '#app',
   data: {
     search: '',
-    message: `Hello from Vue ${Vue.version}!`,
+    vueVersion: `${Vue.version}`,
     stops: []
   },
   methods: {

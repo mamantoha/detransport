@@ -18,7 +18,7 @@ module.exports = {
 
   // What js / CSS files should we read from and generate
   entry: {
-    application: ['./javascripts/application.js']
+    application: ['bootstrap-loader', './javascripts/application.js']
   },
 
   // Define where to save assets to
@@ -37,12 +37,15 @@ module.exports = {
         presets: ['es2015']
       }
     },
+    { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
+    { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
+    { test: /\.(ttf|eot)$/, loader: 'file-loader' },
     ]
   },
 
   plugins: [
     new webpack.ProvidePlugin({
-      Vue: 'vue'
+      Vue: 'vue',
     }),
   ],
 
