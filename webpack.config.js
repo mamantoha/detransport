@@ -37,7 +37,11 @@ module.exports = {
         presets: ['es2015']
       },
     },
-    { test: /.vue$/, loader: 'vue-loader' },
+    {
+      test: /.vue$/,
+      loader: 'vue-loader',
+      exclude: /node_modules/,
+    },
     { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
     { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
     { test: /\.(ttf|eot)$/, loader: 'file-loader' },
