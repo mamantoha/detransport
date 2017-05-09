@@ -9,15 +9,15 @@ require 'json'
 Bundler.require :default, ENV['RACK_ENV'].to_sym
 
 class App < Sinatra::Base
-  configure do
-    register Sinatra::Reloader
-    register Sinatra::Namespace
+  register Sinatra::Reloader
+  register Sinatra::Namespace
 
+  configure do
     set :views, 'app/views'
   end
 
   get '/' do
-    erb :index
+    erb :index, layout: :'layouts/application'
   end
 
   namespace '/api' do

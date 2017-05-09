@@ -3,31 +3,12 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource);
 
-let app = new Vue({
-  el: '#app',
+Vue.component('stops-component', require('./components/Stops.vue'))
+
+new Vue({
+  el: '#root',
   data: {
-    search: '',
     vueVersion: `${Vue.version}`,
-    stops: []
   },
-  methods: {
-    loadStops: function() {
-      this.$http.get('/api/stops').then(response => {
-        this.stops = response.body.stops
-        console.log(response)
-      }, response => {
-        console.log(response)
-      })
-    }
-  },
-  computed: {
-    filteredStops() {
-      return this.stops.filter(stop => {
-        return stop.name.toLowerCase().includes(this.search.toLowerCase())
-      })
-    }
-  },
-  mounted: function() {
-    this.loadStops();
-  }
 })
+

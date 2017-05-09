@@ -35,8 +35,9 @@ module.exports = {
       loader: 'babel-loader',
       query: {
         presets: ['es2015']
-      }
+      },
     },
+    { test: /.vue$/, loader: 'vue-loader' },
     { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
     { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
     { test: /\.(ttf|eot)$/, loader: 'file-loader' },
