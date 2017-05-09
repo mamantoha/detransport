@@ -35,7 +35,7 @@ class App < Sinatra::Base
       json data
     end
 
-    get '/vehicle/:id' do
+    get '/stops/:id' do
       response = @conn.post('/vehicles/info/', { stop: params[:id] })
 
       data = JSON.parse(response.body)

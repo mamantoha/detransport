@@ -1,14 +1,22 @@
 <template>
   <div>
-    <button @click="loadStops()">Reload stops</button>
     <h4>
       Stops ({{Object.keys(filteredStops).length}}):
     </h4>
     <input type="text" v-model="search" class="form-control" />
 
-    <div v-for="stop in filteredStops">
-      {{ stop.name }}
+    <div class="row">
+      <div class="col-md-8">
+        <div v-for="stop in filteredStops">
+          <router-link :to="{name: 'vehicles', params: { id: stop.id }}">{{ stop.name }}</router-link>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <router-view></router-view>
+      </div>
     </div>
+
   </div>
 </template>
 
