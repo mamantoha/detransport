@@ -2,10 +2,9 @@
   <div>
     <button @click="fetchData()" class="btn btn-primary">Reload</button>
     <br/>
-    <div v-for="vehicle in vehicles">
+    <div v-for="vehicle in sortedVehicles">
       <div>Name: {{ vehicle.name }}</div>
       <div>Time: {{ vehicle.time }}sec</div>
-      <div>Distance: {{ vehicle.distance }}m</div>
       <hr/>
     </div>
   </div>
@@ -31,6 +30,18 @@ module.exports = {
         this.vehicles = response.body.vehicles
       }, response => {
       })
+    }
+  },
+  computed: {
+    sortedVehicles: function() {
+      function compare(a, b) {
+        if (a.time < b.time)
+          return -1;
+        if (a.time > b.time)
+          return 1;
+        return 0;
+      }
+      return this.vehicles.sort(compare)
     }
   },
 }

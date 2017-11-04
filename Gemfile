@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.4.2'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'puma'
 gem 'faraday'
+gem 'puma'
 
 group :development do
   gem 'pry'
