@@ -1,11 +1,13 @@
 <template>
   <div>
-    <button @click="fetchData()" class="btn btn-primary">Reload</button>
-    <br/>
-    <div v-for="vehicle in sortedVehicles">
-      <div>Name: {{ vehicle.name }}</div>
-      <div>Time: {{ vehicle.time }}sec</div>
-      <hr/>
+    <div class="reload-button">
+      <button @click="fetchData()" class="btn btn-primary">Reload</button>
+    </div>
+    <div id="vehicles-list">
+      <div v-for="vehicle in sortedVehicles">
+        <strong>{{ vehicle.name }}</strong> через {{ fmtMSS(vehicle.time) }}
+        <hr/>
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +32,9 @@ module.exports = {
         this.vehicles = response.body.vehicles
       }, response => {
       })
+    },
+    fmtMSS: (s) => {
+      return(s - (s%=60))/60 + (9 < s ? ':' : ':0') + s
     }
   },
   computed: {
@@ -42,7 +47,8 @@ module.exports = {
         return 0;
       }
       return this.vehicles.sort(compare)
-    }
+    },
   },
 }
+
 </script>
