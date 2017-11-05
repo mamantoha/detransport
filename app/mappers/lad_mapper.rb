@@ -7,7 +7,7 @@ class LadMapper
     data.each_with_object([]) do |hash, memo|
       memo << {
         id: hash["Code"],
-        name: hash["Name"],
+        name: "#{hash['Name']} (#{hash['Code']})",
       }
     end
   end
