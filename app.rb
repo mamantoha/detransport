@@ -1,5 +1,6 @@
 require 'bundler'
 require 'sinatra'
+require 'sinatra/reloader'
 require 'sinatra/json'
 require 'sinatra/reloader'
 require 'sinatra/namespace'
@@ -17,21 +18,31 @@ class App < Sinatra::Base
 
   configure do
     set :views, 'app/views'
+    set :city, 'ternopil'
   end
 
-  before do
-    set_city
+  configure :development do
+    register Sinatra::Reloader
   end
 
-  get '/' do
-    erb :index, layout: :'layouts/application'
+  helpers do
+    def title
+      "#{settings.city.capitalize} Detransport"
+    end
   end
 
-  get "/set_city" do
+  get "/" do
+    redirect "#{settings.city}"
+  end
+
+  get "/set_city/?" do
     city = params[:city]
-    session[:city] = city
+    settings.city = city
+    redirect "/#{city}/"
+  end
 
-    redirect "/"
+  get '/:city/?' do
+    erb :index, layout: :'layouts/application'
   end
 
   namespace '/api' do
@@ -39,8 +50,8 @@ class App < Sinatra::Base
       headers 'Access-Control-Allow-Origin' => '*'
       content_type :json
 
-      @api_client = ApiWrapper.new(session[:city]).()
-      @mapper = MapperWrapper.new(session[:city]).()
+      @api_client = ApiWrapper.new(settings.city).()
+      @mapper = MapperWrapper.new(settings.city).()
     end
 
     get '/stops' do
@@ -55,11 +66,4 @@ class App < Sinatra::Base
     end
 
   end
-
-  private
-
-  def set_city
-    session[:city] = "ternopil" unless session[:city]
-  end
-
 end
