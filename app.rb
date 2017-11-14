@@ -38,7 +38,7 @@ class App < Sinatra::Base
   get "/set_city/?" do
     city = params[:city]
     settings.city = city
-    redirect "/#{city}/"
+    redirect "/#{city}/#/"
   end
 
   get '/:city/?' do
