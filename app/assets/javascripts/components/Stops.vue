@@ -9,7 +9,7 @@
 
     <div class="row">
       <div class="col-xs-6 col-md-8" id="stops">
-        <div v-for="stop in filteredStops">
+        <div v-for="stop in filteredStops" :key="stop.id">
           <div class="stop">
             <router-link :to="{name: 'vehicles', params: { id: decodeURIComponent(stop.id) }}">{{ stop.name }}</router-link>
           </div>
