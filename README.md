@@ -22,7 +22,7 @@ $ bundle install
 ### Install npm dependencies
 
 ```
-$ npm install
+$ yarn
 ```
 
 ### Run development server
