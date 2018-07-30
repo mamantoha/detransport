@@ -5,8 +5,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
-const Stops = Vue.component('stops-component', require('./components/Stops.vue'))
-const Vehicles = Vue.component('vehicles-component', require('./components/Vehicles.vue'))
+const Stops = Vue.component('stops-component', require('./components/Stops.vue').default)
+const Vehicles = Vue.component('vehicles-component', require('./components/Vehicles.vue').default)
 
 const routes = [
   { path: '/stops/:id', name: 'vehicles', component: Vehicles },

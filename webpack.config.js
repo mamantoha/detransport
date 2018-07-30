@@ -74,8 +74,7 @@ module.exports = {
         test: /\.(ttf|eot)$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {}
+            loader: 'file-loader'
           }
         ]
       },
@@ -84,7 +83,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(
       {
-        filename: "application.css",
+        filename: cssOutputTemplate,
       }
     ),
     new VueLoaderPlugin()
