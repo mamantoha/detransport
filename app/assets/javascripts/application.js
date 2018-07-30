@@ -22,4 +22,3 @@ new Vue({
     vueVersion: `${Vue.version}`,
   }
 }).$mount('#root')
-
