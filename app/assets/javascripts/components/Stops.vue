@@ -7,21 +7,19 @@
       <input type="text" v-model="search" class="form-control" />
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col" id="stops">
-          <div v-for="stop in filteredStops" :key="stop.id">
-            <div class="stop">
-              <router-link :to="{name: 'vehicles', params: { id: decodeURIComponent(stop.id) }}">
-                {{ stop.name }}
-              </router-link>
-            </div>
+    <div class="row">
+      <div class="col" id="stops">
+        <div v-for="stop in filteredStops" :key="stop.id">
+          <div class="stop">
+            <router-link :to="{name: 'vehicles', params: { id: decodeURIComponent(stop.id) }}">
+              {{ stop.name }}
+            </router-link>
           </div>
         </div>
+      </div>
 
-        <div class="col" id="vehicles">
-          <router-view></router-view>
-        </div>
+      <div class="col" id="vehicles">
+        <router-view></router-view>
       </div>
     </div>
 
