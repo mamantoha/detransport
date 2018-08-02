@@ -8,29 +8,29 @@
 
 ### Clone from GiHub
 
-```
-$ git clone https://github.com/mamantoha/detransport.git
-$ cd detransport
+```console
+git clone https://github.com/mamantoha/detransport.git
+cd detransport
 ```
 
 ### Install Ruby dependencies
 
-```
-$ bundle install
+```console
+bundle install
 ```
 
 ### Install npm dependencies
 
-```
-$ yarn
+```console
+yarn
 ```
 
 ### Run development server
 
-```
-$ bundle exec rackup
+```console
+bundle exec rackup
 ```
 
-```
-$ npm run watch
+```console
+npm run watch
 ```
