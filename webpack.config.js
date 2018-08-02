@@ -14,7 +14,6 @@ module.exports = {
   context: path.join(__dirname, '/app/assets'),
 
   entry: [
-    'bootstrap-loader',
     './javascripts/application.js',
     './stylesheets/application.sass'
   ],
@@ -53,14 +52,6 @@ module.exports = {
           'css-loader',
           'sass-loader',
         ],
-      },
-      {
-        test: /bootstrap-sass\/assets\/javascripts\//,
-        use: [
-          {
-            loader: 'imports-loader?jQuery=jquery'
-          }
-        ]
       },
       {
         test: /\.(woff2?|svg)$/,

@@ -1,6 +1,7 @@
 import Vue from 'vue/dist/vue.esm'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
+import 'bootstrap';
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
