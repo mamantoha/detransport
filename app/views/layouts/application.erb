@@ -12,12 +12,23 @@
 </head>
 
 <body>
-  <div id="root">
-    <%= erb :'layouts/navbar' %>
+  <div id="app">
+    <header>
+      <%= erb :'layouts/navbar' %>
+    </header>
 
-    <%= yield %>
+    <main role="main" class="container">
+      <%= yield %>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">2018 © detransport</span>
+      </div>
+    </footer>
 
   </div>
+
   <script src="/javascripts/application.js"></script>
   <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
 </body>

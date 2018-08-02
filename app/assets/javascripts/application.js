@@ -22,4 +22,4 @@ new Vue({
   data: {
     vueVersion: `${Vue.version}`,
   }
-}).$mount('#root')
+}).$mount('#app')
