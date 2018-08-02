@@ -4,9 +4,8 @@
       <button @click="fetchData()" class="btn btn-primary">Reload</button>
     </div>
     <div id="vehicles-list">
-      <div v-for="vehicle in sortedVehicles" :key="vehicle.id">
+      <div class="vehicle" v-for="vehicle in sortedVehicles" :key="vehicle.id">
         <strong>{{ vehicle.name }}</strong> через {{ fmtMSS(vehicle.time) }}
-        <hr/>
       </div>
     </div>
   </div>
