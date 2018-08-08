@@ -1,5 +1,5 @@
-require_relative "detransport_mapper"
-require_relative "lad_mapper"
+require_relative "mappers/detransport_mapper"
+require_relative "mappers/lad_mapper"
 
 class MapperWrapper
   def initialize(city)

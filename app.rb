@@ -6,7 +6,7 @@ require 'sinatra/reloader'
 require 'sinatra/namespace'
 require 'json'
 require_relative "lib/api_wrapper"
-require_relative "app/mappers/mapper_wrapper"
+require_relative "lib/mapper_wrapper"
 
 Bundler.require :default, ENV['RACK_ENV'].to_sym
 

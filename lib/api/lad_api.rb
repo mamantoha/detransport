@@ -21,7 +21,7 @@ class LadAPI
   end
 
   def stops
-    file = File.read(File.expand_path('data/lviv_stops.json', __dir__))
+    file = File.read(File.expand_path('../data/lviv_stops.json', __dir__))
 
     JSON.parse(file)
   end

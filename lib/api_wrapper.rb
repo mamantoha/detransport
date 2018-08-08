@@ -1,5 +1,5 @@
-require_relative "detransport_api"
-require_relative "lad_api"
+require_relative "api/detransport_api"
+require_relative "api/lad_api"
 
 class ApiWrapper
   attr_reader :client
