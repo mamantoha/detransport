@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="reload-button">
-      <button @click="fetchData()" class="btn btn-primary">Reload</button>
+      <button @click="fetchData()" class="btn btn-primary" :disabled=isLoading>
+        {{ isLoading ? "Loading" : "Reload" }}
+      </button>
     </div>
     <div id="vehicles-list">
       <div class="vehicle" v-for="vehicle in sortedVehicles" :key="vehicle.id">
@@ -15,7 +17,8 @@
 module.exports = {
   data () {
     return {
-      vehicles: []
+      vehicles: [],
+      isLoading: false
     }
   },
   created () {
@@ -26,10 +29,14 @@ module.exports = {
   },
   methods: {
     fetchData () {
+      this.isLoading = true
       this.$http.get(`/api/stops/${this.$route.params.id}`).then(response => {
         console.log(response)
+        this.isLoading = true
         this.vehicles = response.body.vehicles
+        this.isLoading = false
       }, response => {
+        // error callback
       })
     },
     fmtMSS: (s) => {
