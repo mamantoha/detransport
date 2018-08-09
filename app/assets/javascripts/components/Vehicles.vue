@@ -1,5 +1,6 @@
 <template>
   <div>
+    <strong>{{ findStopById(this.$parent.stops, this.$route.params.id).name }}</strong>
     <div class="reload-button">
       <button @click="fetchData()" class="btn btn-primary" :disabled=isLoading>
         {{ isLoading ? "Loading" : "Reload" }}
@@ -37,10 +38,20 @@ module.exports = {
         this.isLoading = false
       }, response => {
         // error callback
+        console.log(response)
+        this.isLoading = false
       })
     },
     fmtMSS: (s) => {
       return(s - (s%=60))/60 + (9 < s ? ':' : ':0') + s
+    },
+    findStopById: (stops, id) => {
+      for (var i = 0; i < stops.length; i++) {
+        if (stops[i]["id"] === id) {
+            return stops[i];
+        }
+      }
+      return null;
     }
   },
   computed: {

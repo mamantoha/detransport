@@ -10,7 +10,7 @@ const Stops = Vue.component('stops-component', require('./components/Stops.vue')
 const Vehicles = Vue.component('vehicles-component', require('./components/Vehicles.vue').default)
 
 const routes = [
-  { path: '/stops/:id', name: 'vehicles', component: Vehicles },
+  { path: '/stops/:id', name: 'vehicles', component: Vehicles, props: true },
 ]
 
 const router = new VueRouter({
