@@ -1,6 +1,6 @@
 <template>
   <div>
-    <strong>{{ findStopById(this.$parent.stops, this.$route.params.id).name }}</strong>
+    <strong>{{ stopName }}</strong>
     <div class="reload-button">
       <button @click="fetchData()" class="btn btn-primary" :disabled=isLoading>
         {{ isLoading ? "Loading" : "Reload" }}
@@ -45,16 +45,21 @@ module.exports = {
     fmtMSS: (s) => {
       return(s - (s%=60))/60 + (9 < s ? ':' : ':0') + s
     },
-    findStopById: (stops, id) => {
-      for (var i = 0; i < stops.length; i++) {
-        if (stops[i]["id"] === id) {
-            return stops[i];
-        }
-      }
-      return null;
-    }
   },
   computed: {
+    stopName: function() {
+      function findStopById(stops, id) {
+        for (var i = 0; i < stops.length; i++) {
+          if (stops[i]["id"] === id) {
+              return stops[i];
+          }
+        }
+        return null;
+      }
+
+      stop = findStopById(this.$parent.stops, this.$route.params.id)
+      return stop ? stop.name : ""
+    },
     sortedVehicles: function() {
       function compare(a, b) {
         if (a.time < b.time)
