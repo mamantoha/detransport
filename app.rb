@@ -50,8 +50,8 @@ class App < Sinatra::Base
       headers 'Access-Control-Allow-Origin' => '*'
       content_type :json
 
-      @api_client = ApiWrapper.new(settings.city).()
-      @mapper = MapperWrapper.new(settings.city).()
+      @api_client = ApiWrapper.new(settings.city)
+      @mapper = MapperWrapper.new(settings.city)
     end
 
     get '/stops' do

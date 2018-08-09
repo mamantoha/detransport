@@ -15,7 +15,11 @@ class ApiWrapper
     end
   end
 
-  def call
-    @client
+  def stops
+    @client.stops
+  end
+
+  def show_stop(code)
+    @client.show_stop(code)
   end
 end

@@ -13,8 +13,11 @@ class MapperWrapper
     end
   end
 
-  def call
-    @mapper
+  def stops(data)
+    @mapper.stops(data)
   end
 
+  def vehicles(data)
+    @mapper.vehicles(data)
+  end
 end

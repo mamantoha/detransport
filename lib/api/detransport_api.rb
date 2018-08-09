@@ -13,7 +13,7 @@ class DetransportAPI
     parse_response(response)
   end
 
-  def vehicles(id)
+  def show_stop(id)
     response = @conn.post('/vehicles/info/', { stop: id })
     parse_response(response)
   end
@@ -24,6 +24,4 @@ class DetransportAPI
     body = response.body
     JSON.parse(body)
   end
-
-  alias show_stop vehicles
 end
