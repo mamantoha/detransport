@@ -9,4 +9,5 @@ gem 'sinatra-contrib'
 
 group :development do
   gem 'pry'
+  gem 'rubocop'
 end
