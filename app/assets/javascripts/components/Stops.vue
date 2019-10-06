@@ -36,8 +36,8 @@ module.exports = {
   },
   methods: {
     loadStops: function() {
-      this.$http.get('/api/stops').then(response => {
-        this.stops = response.body.stops
+      this.$axios.get('/api/stops').then(response => {
+        this.stops = response.data.stops
         console.log(response)
       }, response => {
         console.log(response)

@@ -31,10 +31,10 @@ module.exports = {
   methods: {
     fetchData () {
       this.isLoading = true
-      this.$http.get(`/api/stops/${this.$route.params.id}`).then(response => {
+      this.$axios.get(`/api/stops/${this.$route.params.id}`).then(response => {
         console.log(response)
         this.isLoading = true
-        this.vehicles = response.body.vehicles
+        this.vehicles = response.data.vehicles
         this.isLoading = false
       }, response => {
         // error callback
