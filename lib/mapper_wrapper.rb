@@ -1,15 +1,17 @@
-require_relative "mappers/detransport_mapper"
-require_relative "mappers/lad_mapper"
+# frozen_string_literal: true
+
+require_relative 'mappers/detransport_mapper'
+require_relative 'mappers/lad_mapper'
 
 class MapperWrapper
   def initialize(city)
     case city
-    when "lviv"
+    when 'lviv'
       @mapper = LadMapper.new
-    when "ternopil"
+    when 'ternopil'
       @mapper = DetransportMapper.new
     else
-      raise "Unknown mapper"
+      raise 'Unknown mapper'
     end
   end
 

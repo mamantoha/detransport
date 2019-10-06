@@ -1,21 +1,23 @@
-require "json"
-require "faraday"
+# frozen_string_literal: true
+
+require 'json'
+require 'faraday'
 
 class LadAPI
   def initialize
-    url = "https://api.eway.in.ua/"
-    login = ENV["EWAY_USER"]
-    password = ENV["EWAY_PASSWORD"]
+    url = 'https://api.eway.in.ua/'
+    login = ENV['EWAY_USER']
+    password = ENV['EWAY_PASSWORD']
 
     @conn = Faraday.new(
       url: url,
       params: {
         login: login,
         password: password,
-        city: "lviv",
-        lang: "ua",
-        format: "json",
-        v: "1.2"
+        city: 'lviv',
+        lang: 'ua',
+        format: 'json',
+        v: '1.2'
       }
     )
   end
@@ -28,9 +30,9 @@ class LadAPI
 
   def show_stop(code)
     res = @conn.get do |req|
-      req.url "/"
-      req.params["function"] = "stops.GetStopInfo"
-      req.params["id"] = code
+      req.url '/'
+      req.params['function'] = 'stops.GetStopInfo'
+      req.params['id'] = code
     end
 
     JSON.parse(res.body)
