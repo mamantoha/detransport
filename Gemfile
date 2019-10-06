@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'sinatra', '~> 2.0.2'
-gem 'sinatra-contrib'
 gem 'faraday'
 gem 'puma'
+gem 'sinatra'
+gem 'sinatra-contrib'
 
 group :development do
   gem 'pry'

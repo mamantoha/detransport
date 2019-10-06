@@ -1,10 +1,11 @@
-require "faraday"
-require "json"
+# frozen_string_literal: true
+
+require 'faraday'
+require 'json'
 
 class DetransportAPI
-
   def initialize
-    url = "http://api.detransport.com.ua"
+    url = 'http://api.detransport.com.ua'
     @conn = Faraday.new(url: url)
   end
 
@@ -14,7 +15,7 @@ class DetransportAPI
   end
 
   def show_stop(id)
-    response = @conn.post('/vehicles/info/', { stop: id })
+    response = @conn.post('/vehicles/info/', stop: id)
     parse_response(response)
   end
 

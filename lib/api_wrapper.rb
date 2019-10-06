@@ -1,17 +1,19 @@
-require_relative "api/detransport_api"
-require_relative "api/lad_api"
+# frozen_string_literal: true
+
+require_relative 'api/detransport_api'
+require_relative 'api/lad_api'
 
 class ApiWrapper
   attr_reader :client
 
   def initialize(city)
     case city
-    when "lviv"
+    when 'lviv'
       @client = LadAPI.new
-    when "ternopil"
+    when 'ternopil'
       @client = DetransportAPI.new
     else
-      raise "Unknown API provider"
+      raise 'Unknown API provider'
     end
   end
 

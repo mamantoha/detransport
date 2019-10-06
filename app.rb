@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -5,8 +7,8 @@ require 'sinatra/json'
 require 'sinatra/reloader'
 require 'sinatra/namespace'
 require 'json'
-require_relative "lib/api_wrapper"
-require_relative "lib/mapper_wrapper"
+require_relative 'lib/api_wrapper'
+require_relative 'lib/mapper_wrapper'
 
 Bundler.require :default, ENV['RACK_ENV'].to_sym
 
@@ -31,11 +33,11 @@ class App < Sinatra::Base
     end
   end
 
-  get "/" do
-    redirect "#{settings.city}"
+  get '/' do
+    redirect settings.city.to_s
   end
 
-  get "/set_city/?" do
+  get '/set_city/?' do
     city = params[:city]
     settings.city = city
     redirect "/#{city}/#/"
@@ -64,6 +66,5 @@ class App < Sinatra::Base
       data = @api_client.show_stop(params[:id])
       json vehicles: @mapper.vehicles(data)
     end
-
   end
 end

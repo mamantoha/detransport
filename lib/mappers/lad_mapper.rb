@@ -1,22 +1,22 @@
-class LadMapper
+# frozen_string_literal: true
 
-  def initialize
-  end
+class LadMapper
+  def initialize; end
 
   def stops(data)
     data.each_with_object([]) do |hash, memo|
       memo << {
-        id: hash["id"],
-        name: hash['name'],
+        id: hash['id'],
+        name: hash['name']
       }
     end
   end
 
   def vehicles(data)
-    data["routes"].each_with_object([]) do |hash, memo|
+    data['routes'].each_with_object([]) do |hash, memo|
       memo << {
-        name: hash["title"],
-        time: time_to_seconds(hash["timeLeft"]),
+        name: hash['title'],
+        time: time_to_seconds(hash['timeLeft'])
       }
     end
   end

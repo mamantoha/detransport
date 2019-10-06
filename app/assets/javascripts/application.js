@@ -1,9 +1,9 @@
 import Vue from 'vue/dist/vue.esm'
-import VueResource from 'vue-resource'
+import axios from 'axios';
 import VueRouter from 'vue-router'
 import 'bootstrap';
 
-Vue.use(VueResource);
+Vue.prototype.$axios = axios
 Vue.use(VueRouter);
 
 const Stops = Vue.component('stops-component', require('./components/Stops.vue').default)
