@@ -1,7 +1,7 @@
 {
   "name": "detransport",
   "engines": {
-    "node": "~10.15",
+    "node": "~10.19",
     "npm": "~5.6"
   },
   "dependencies": {
