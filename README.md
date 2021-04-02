@@ -32,5 +32,15 @@ bundle exec rackup
 ```
 
 ```console
-npm run watch
+npm run build
 ```
+
+## Contributors
+
+* [mamantoha](https://github.com/mamantoha) Anton Maminov - creator, maintainer
+
+## License
+
+Copyright: 2017-2021 Anton Maminov (anton.maminov@gmail.com)
+
+This library is distributed under the MIT license. Please see the LICENSE file.
