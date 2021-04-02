@@ -19,7 +19,7 @@
     "build": "webpack",
     "webpack": "./node_modules/.bin/webpack",
     "watch": "./node_modules/.bin/webpack -w",
-    "webpack:deploy": "webpack --config=webpack.config.js -p",
+    "webpack:deploy": "webpack --config=webpack.config.js --mode production",
     "heroku-postbuild": "npm run webpack:deploy"
   },
   "devDependencies": {
